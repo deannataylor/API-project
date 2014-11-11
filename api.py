@@ -24,8 +24,7 @@ def search(query):
                 print url
 
 if __name__ == "__main__":
-    print url
-    search("Toy Story 3")
+    getStuff("Toy+Story+3")
     
 
 """
