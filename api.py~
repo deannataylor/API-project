@@ -5,15 +5,28 @@ url="http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=au5nf6pd9f
 key = "au5nf6pd9fwwh4kjbqqt6jws"
 
 def getStuff(query):
-    request = urllib2.urlopen(url % query)
+    request = urllib2.urlopen(url % (query))
     result = request.read()
     d = json.loads(result)
-    rlist = d['movies']
-    for r in rlist:
-        print r['titleNoFormatting']
+    print d["total"]
+    movies = d['movies'] 
+    for m in movies:
+        print m["title"]
+
+def search(query):
+    request = urllib2.urlopen(url % (""))
+    result = request.read()
+    d = json.loads(result)
+    movies = d['movies']
+    for m in movies:
+        for a in m["abridged_cast"]:
+            if a["name"] == query:
+                print a
+
+
+if __name__ == "__main__":
+    search("Tina Fey")
     
-
-
 
 """
 names of stuff:

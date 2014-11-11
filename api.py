@@ -9,23 +9,23 @@ def getStuff(query):
     result = request.read()
     d = json.loads(result)
     print d["total"]
-    movies = d['movies'] 
+    movies = d["movies"] 
     for m in movies:
         print m["title"]
 
 def search(query):
-    request = urllib2.urlopen(url % (""))
+    request = urllib2.urlopen(url % (query))
     result = request.read()
     d = json.loads(result)
-    movies = d['movies']
+    movies = d["movies"]
     for m in movies:
         for a in m["abridged_cast"]:
             if a["name"] == query:
-                print a
-
+                print url
 
 if __name__ == "__main__":
-    search("Tina Fey")
+    print url
+    search("Toy Story 3")
     
 
 """
