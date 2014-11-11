@@ -1,10 +1,14 @@
 import urllib2, json
 
 t_url="http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=au5nf6pd9fwwh4kjbqqt6jws&q=%s"
-article_url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=%s&end_date=%s&api-key=c45e227370aff9e7405b5f40db5249cf:12:70174992"
+article_url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?&fq=pub_date:(%s)&api-key=c45e227370aff9e7405b5f40db5249cf:12:70174992"
 
 
 def getMovie(query):
+    '''
+    query: words+words+
+    returns: YYYY-MM-DD
+    '''
     request = urllib2.urlopen(t_url % (query))
     result = request.read()
     d = json.loads(result)
@@ -15,7 +19,7 @@ def getDate(movie):
 
 def getArticles(date):
     '''
-    date: in the form YYYYMMDD
+    date: in the form YYYY-MM-DD
     '''
     request = urllib2.urlopen(article_url % (date,date))
     result = request.read()
@@ -36,8 +40,11 @@ def search(query):
 
 
 if __name__ == "__main__":
+
     #getStuff("Toy+Story+3")
     getArticles(20141111)
+
+    
 
 """
 TOMATOES:
