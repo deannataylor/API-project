@@ -4,6 +4,8 @@ import urllib2, json, api
 app=Flask(__name__)
 @app.route("/")
 def index():
+    ''' movie=request.args.get["movie"]
+    values=api.final(movie) '''
     return render_template("home.html")
 
 @app.route("/movies")

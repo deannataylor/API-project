@@ -33,6 +33,12 @@ def getArticles(date):
         print articles[i]['headline']['main']
         i+=1
 
+def final(movie):
+    movieName=getMovie(movie)
+    date=getDate(movieName)
+    articles=getArticles(date)
+    print articles
+
 def search(query):
     request = urllib2.urlopen(url % (query))
     result = request.read()
