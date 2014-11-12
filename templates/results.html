@@ -12,9 +12,8 @@
   {% if len(a['multimedia']) > 0 %}
     {% for p in a['multimedia'] %}
       {% if p['type'] == "image" %}
-      <img src={{p['url']}}
-  style="width:{{p['width']}};height:{{p['height']}}">
- {% endif %}
+      <img src={{p['url']}} style="width:{{p['width']}};height:{{p['height']}}">
+      {% endif %}
     {% endfor %}
   {% endif %}
   {% endfor %}
