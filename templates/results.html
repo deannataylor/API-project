@@ -12,10 +12,15 @@
   {% if a['multimedia'] %}
     {% for p in a['multimedia'] %}
       {% if p['type'] == "image" %}
+<<<<<<< HEAD
       <img src={{p['url']}}
   style="width:{{p['width']}};height:{{p['height']}}">
 
  {% endif %}
+=======
+      <img src={{p['url']}} style="width:{{p['width']}};height:{{p['height']}}">
+      {% endif %}
+>>>>>>> b264435020547e82451b5f58d5aab9af081c59ff
     {% endfor %}
   {% endif %}
 <br>
