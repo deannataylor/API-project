@@ -41,7 +41,7 @@ def getArticles(date):
 def final(movie):
     date=getDate(movie)
     articles=getArticles(date)
-    return articles
+    return articles,date
 
 def search(query):
     request = urllib2.urlopen(url % (query))
