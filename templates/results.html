@@ -5,18 +5,20 @@
   <h2>
     GOLDEN Tomatoes!
   </h2>
-
+{{date}}<br><br>
   {% for a in articles %}
 
-    <a href="{{ a['web_url'] }}">{{ a['headline']['main'] }}</a><br><br>
-  {% if len(a['multimedia']) > 0 %}
+    <a href="{{ a['web_url'] }}">{{ a['headline']['main'] }}</a><br>
+  {% if a['multimedia'] %}
     {% for p in a['multimedia'] %}
       {% if p['type'] == "image" %}
       <img src={{p['url']}}
   style="width:{{p['width']}};height:{{p['height']}}">
+
  {% endif %}
     {% endfor %}
   {% endif %}
+<br>
   {% endfor %}
 
  <form action="/">

@@ -12,8 +12,8 @@ def index():
 def movies():
     if request.method == 'POST':
         movie=request.form["movie"]
-        articles=api.final(movie) 
-        return render_template("results.html",articles=articles)
+        articles,date = api.final(movie) 
+        return render_template("results.html",articles=articles,date=date)
     else:
         flash("Enter a movie")
         return redirect('/')
