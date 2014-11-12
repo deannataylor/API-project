@@ -46,8 +46,14 @@ def search(query):
 
 if __name__ == "__main__":
 
+<<<<<<< HEAD
     print getDate("Toy+Story+3")
     #getArticles("1997-01-07")
+=======
+    #getStuff("Toy+Story+3")
+    getArticles(2014-11-11)
+    getDate("Inception")
+>>>>>>> 73cd2ddd9bd716c6f4f6c4812a6c9bcdc498514b
     #a = a % ("2014-11-11", "Sports")
     
     
