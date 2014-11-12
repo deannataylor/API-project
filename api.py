@@ -12,10 +12,11 @@ def getMovie(query):
     request = urllib2.urlopen(t_url % (query))
     result = request.read()
     d = json.loads(result)
-    return d["movie"][0]  # returns first movie that gets returned 
+    return d["movies"][0]  # returns first movie that gets returned 
 
 def getDate(movie):
-    return movie['relase_dates']['theater']
+    thing = getMovie(movie)
+    return thing['release_dates']['theater']
 
 def getArticles(date):
     '''
@@ -47,6 +48,7 @@ if __name__ == "__main__":
 
     #getStuff("Toy+Story+3")
     getArticles(2014-11-11)
+    getDate("Inception")
     #a = a % ("2014-11-11", "Sports")
     
     
