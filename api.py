@@ -12,10 +12,11 @@ def getMovie(query):
     request = urllib2.urlopen(t_url % (query))
     result = request.read()
     d = json.loads(result)
-    return d["movie"][0]  # returns first movie that gets returned 
+    return d["movies"][0]  # returns first movie that gets returned 
 
 def getDate(movie):
-    return movie['relase_dates']['theater']
+    thing = getMovie(movie)
+    return thing['release_dates']['theater']
 
 def getArticles(date):
     '''
@@ -30,7 +31,7 @@ def getArticles(date):
     i = 0
     while i < len(articles) and i < 5:
         print articles[i]['headline']['main']
-        i+=1
+        i=i+1
 
 def search(query):
     request = urllib2.urlopen(url % (query))
@@ -45,8 +46,8 @@ def search(query):
 
 if __name__ == "__main__":
 
-    #getStuff("Toy+Story+3")
-    getArticles(2014-11-11)
+    print getDate("Toy+Story+3")
+    #getArticles("1997-01-07")
     #a = a % ("2014-11-11", "Sports")
     
     
