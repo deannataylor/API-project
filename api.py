@@ -9,7 +9,8 @@ def getMovie(query):
     query: words+words
     returns: YYYY-MM-DD
     '''
-    request = urllib2.urlopen(t_url % (query))
+    newstr = query.replace(" ", "+")
+    request = urllib2.urlopen(t_url % (newstr))
     result = request.read()
     d = json.loads(result)
     return d["movies"][0]  # returns first movie that gets returned 
