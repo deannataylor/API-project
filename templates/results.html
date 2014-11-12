@@ -6,7 +6,12 @@
     GOLDEN Tomatoes!
   </h2>
 
-  values
+  {% for a in articles %}
+
+    {{ a['headline']['main'] }}<br>
+    {{ a['web_url'] }}<br>
+
+  {% endfor %}
 
  <form action="/">
     <button>Search Again</button>

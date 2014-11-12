@@ -11,14 +11,15 @@
   </h3>
   
   <br>
-  <form method=get action="">
-    <input type="text" name="movie">
+  <form method="post" action="/movies" class="pure-form pure-form-aligned">
+<div class="pure-control-group">
+<label for="movie">Movie</label>
+  <input id="movie" name="movie" type="text"
+  placeholder="Movie"></div><br>
+  <button type="submit" class="pure-button">Get Movies</button>
   </form>
   <br>
   
-  <form action="/movies">
-    <button>Get Movies</button>
-  </form>
 
 </fieldset>
 

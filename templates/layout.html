@@ -6,6 +6,7 @@
 body {background-color: #A0A0A0;}
 fieldset {background-color: #900000 ; width: 50%;}
 form {class: "pure-form"}
+.flashes {color: red; text-indent: 50px}
 </style>
 <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
 <title>Golden Tomatoes</title>
@@ -20,6 +21,15 @@ form {class: "pure-form"}
 </div>
 </br>
 
+{% with messages = get_flashed_messages() %}
+      {% if messages %}
+      <div class=flashes>
+        {% for message in messages %}
+        <p>{{ message }}
+        {% endfor %}
+      </div>
+      {% endif %}
+    {% endwith %}
 <body>
 <div align="center">
 {% block body %}

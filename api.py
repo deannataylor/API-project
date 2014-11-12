@@ -28,16 +28,19 @@ def getArticles(date):
     result = request.read()
     d = json.loads(result)
     articles = d['response']['docs']
-    i = 0
+    if len(articles) > 10:
+        return articles[:10]
+    else:
+        return articles
+    """i = 0
     while i < len(articles) and i < 5:
         print articles[i]['headline']['main']
-        i=i+1
+        i=i+1"""
 
 def final(movie):
-    movieName=getMovie(movie)
-    date=getDate(movieName)
+    date=getDate(movie)
     articles=getArticles(date)
-    print articles
+    return articles
 
 def search(query):
     request = urllib2.urlopen(url % (query))

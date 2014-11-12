@@ -3,14 +3,18 @@ import urllib2, json, api
 
 app=Flask(__name__)
 @app.route("/")
-def index():
-    ''' movie=request.args.get["movie"]
-    values=api.final(movie) '''
+def index():  
     return render_template("home.html")
 
-@app.route("/movies")
+@app.route("/movies", methods=['POST'])
 def movies():
-    return render_template("results.html")
+    if request.method == 'POST':
+        movie=request.form["movie"]
+        articles=api.final(movie) 
+        return render_template("results.html",articles=articles)
+    else:
+        flash("Enter a movie")
+        redirect('/')
 
 if __name__=="__main__":
     app.debug=True
